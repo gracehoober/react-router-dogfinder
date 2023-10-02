@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
-import Nav from './Nav';
+
 
 /**
  * state
@@ -9,19 +9,11 @@ import Nav from './Nav';
  * call to an external function for API req
  * rendering navbar and list of dogs
  */
-function DogList() {
-  const [isLoaded, setIsLoaded] = useState(false);
-  let dogData
-
-  // updates state when fetch request is resolved
-  function getData() {
-    setIsLoaded(true);
-  }
+function DogList({ dogs }) {
+  console.log("dogs inside doglist", dogs)
 
   return (
     <>
-      <Nav />
-      {dogData.map(dog => <DogDetails dog={dog}/>)}
     </>
   );
 
