@@ -1,16 +1,16 @@
 import './App.css';
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route, useActionData } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Nav from './Nav';
 import DogList from './DogList';
 import DogDetails from './DogDetails';
 
 import { fetchDogData } from './utils';
 
-/** Renders Doglist
+/** Renders App - Fetches all dog data and renders DogList.
  *
- * State:
- * -dogData
+ * State
+ * - dogData: array of objects like { name, age, src, facts }
 */
 
 function App() {
@@ -31,12 +31,12 @@ function App() {
           <Routes>
             <Route element={<DogList dogs={dogData} />} path="/dogs" />
             <Route element={<DogDetails dogs={dogData} />} path="/dogs/:name" />
-            <Route path="/*"></Route>
+            <Route element={<Navigate to="/dogs" />} path="/*"></Route>
           </Routes>
         </BrowserRouter>
       }
     </div>
   );
 }
-//
+
 export default App;

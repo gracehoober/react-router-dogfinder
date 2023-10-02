@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { Link } from 'react-router-dom';
-
+import "./DogList.css";
 
 /** Renders list of dogs
  *
@@ -11,11 +11,21 @@ import { Link } from 'react-router-dom';
  */
 
 function DogList({ dogs }) {
-  console.log("dogs inside doglist", dogs)
   return (
-    <ul>
-    {dogs.map(dog => <div><Link to={`/dogs/${dog.src}`}>{dog.name}</Link></div>)}
-    </ul>
+    <>
+      {dogs.map((dog, idx) => (
+        <div key={idx} className="DogList-dog">
+          <Link
+            to={`/dogs/${dog.src}`}>
+            {dog.name}
+          </Link>
+          <img
+            className="DogList-img"
+            src={`${dog.src}.jpg`}
+            alt={`${dog.src} image`} />
+        </div>))}
+    </>
+
   );
 
 }

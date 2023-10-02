@@ -1,5 +1,7 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
+import "./DogDetails.css"
+
 
 /** Renders a specific dog's details
  *
@@ -10,14 +12,19 @@ import { useParams } from "react-router-dom";
 function DogDetails({ dogs }) {
   const params = useParams();
   const dogName = params.name;
-  const correctDog = dogs.filter(dog => dog.src === dogName)[0];
+  const dog = dogs.filter(dog => dog.src === dogName)[0];
 
+  console.log("dog in dogdetail", dog)
   return (
     <>
-      <h2>{correctDog.name}</h2>
-      <p>Age: {correctDog.age}</p>
-      <img src={`../public/${correctDog.src}.jpg`}></img>
-      <ul>{correctDog.facts.map(fact => <li>{fact}</li>)}</ul>
+    {dog === undefined ? <Navigate to="/dogs" /> :
+    <div className="DogDetails">
+      <h2>{dog.name}</h2>
+      <p>Age: {dog.age}</p>
+      <img src={`/${dog.src}.jpg`} alt={`${dog.src} image`}/>
+      <ul>{dog.facts.map((fact, idx) => <li key={idx}>{fact}</li>)}</ul>
+    </div>
+    }
     </>
   );
 
