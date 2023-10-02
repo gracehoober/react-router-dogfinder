@@ -29,9 +29,9 @@ function App() {
         <BrowserRouter>
           <Nav dogs={dogData} />
           <Routes>
-            <Route path="/dogs" ></Route>
-            <Route element={<DogList dogs={dogData} />} path="/" />
+            <Route element={<DogList dogs={dogData} />} path="/dogs" />
             <Route element={<DogDetails dogs={dogData} />} path="/dogs/:name" />
+            <Route path="/*"></Route>
           </Routes>
         </BrowserRouter>
       }

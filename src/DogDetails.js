@@ -2,11 +2,11 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 /** Renders a specific dog's details
- * 
+ *
  * props:
  * -dogs [{name:'Duke', src: 'Duke'... },{name: 'Whiskey' , src: 'whiskey'...}...]
- *
  */
+
 function DogDetails({ dogs }) {
   const params = useParams();
   const dogName = params.name;

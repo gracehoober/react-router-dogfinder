@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+
 import { Link } from 'react-router-dom';
 
 
@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
  * Props
  * -dogs [{name:'Duke', src: 'Duke'... },{name: 'Whiskey' , src: 'whiskey'...}...]
  */
+
 function DogList({ dogs }) {
   console.log("dogs inside doglist", dogs)
   return (
