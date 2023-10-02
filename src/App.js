@@ -7,26 +7,29 @@ import DogDetails from './DogDetails';
 
 import { fetchDogData } from './utils';
 
-/** Renders Doglist */
+/** Renders Doglist
+ *
+ * State:
+ * -dogData
+*/
 
 function App() {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [dogData, setDogData] = useState();
+  const [dogData, setDogData] = useState(null);
 
   // updates state when fetch request is resolved
   async function getData() {
     setDogData(await fetchDogData());
-    setIsLoaded(true);
   }
 
-  if (!isLoaded) getData();
+  if (!dogData) getData();
 
   return (
     <div className="App">
-      {!isLoaded ? <h1>Loading...</h1> :
+      {!dogData ? <h1>Loading...</h1> :
         <BrowserRouter>
-          <Nav names={dogData.map(dog => dog.src)} />
+          <Nav dogs={dogData} />
           <Routes>
+            <Route path="/dogs" ></Route>
             <Route element={<DogList dogs={dogData} />} path="/" />
             <Route element={<DogDetails dogs={dogData} />} path="/dogs/:name" />
           </Routes>
