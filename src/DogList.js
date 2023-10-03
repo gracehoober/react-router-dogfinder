@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { Link } from 'react-router-dom';
 import "./DogList.css";
@@ -7,7 +6,7 @@ import "./DogList.css";
 /** Renders list of dogs
  *
  * Props
- * -dogs [{name:'Duke', src: 'Duke'... },{name: 'Whiskey' , src: 'whiskey'...}...]
+ * -dogs [{ name, age, src, facts },...]
  */
 
 function DogList({ dogs }) {

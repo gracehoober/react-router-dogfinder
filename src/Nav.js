@@ -1,11 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import "./Nav.css";
 
 /** Renders navigation bar
  *
  * props:
- * -dogs [{name:'Duke', src: 'Duke'... },{name: 'Whiskey' , src: 'whiskey'...}...]
+ * -dogs [{ name, age, src, facts },...]
  */
 function Nav({ dogs }) {
   return (

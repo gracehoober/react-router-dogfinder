@@ -3,6 +3,9 @@
   justify-content: space-around;
   background-color: aquamarine;
 }
+.Nav .Nav-link.active{
+  color: red
+}
 .Nav-link {
   text-decoration: none;
   color: black
